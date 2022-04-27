@@ -55,3 +55,14 @@ RegisterNUICallback('NUIFocusOff', function()
 	SetNuiFocus(false, false)
 	SendNUIMessage({type = 'closeAll'})
 end)
+
+function GetPlayerServerIds()
+    local players = {}
+    for i = 0, 31 do
+        if NetworkIsPlayerActive(i) then
+            table.insert(players, GetPlayerServerId(i))
+        end
+    end
+
+    return players
+end
