@@ -71,9 +71,9 @@ AddEventHandler("scf_telegram:SendTelegram", function(data)
     exports.ghmattimysql:execute("INSERT INTO telegrams ( `recipient`,`sender`,`subject`,`sentTime`,`message`,`postoffice`) VALUES ( @recipient,@sender, @subject,@sentTime,@message,@postoffice )", Parameters)
     end)
     TriggerEvent("vorp:removeMoney", _source, 0,0.50)
-    TriggerClientEvent("vorp:Tip", _source, "Telegram have been sent", 3000)
+    TriggerClientEvent("vorp:Tip", _source, "Telegramm wurde gesendet", 3000)
     else
-    TriggerClientEvent("vorp:Tip", _source, "you do not have enough money", 3000)
+    TriggerClientEvent("vorp:Tip", _source, "du hast nicht genug Geld", 3000)
 end
 end)
 RegisterServerEvent("scf_telegram:getTelegram")
