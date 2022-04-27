@@ -66,7 +66,7 @@ AddEventHandler("scf_telegram:SendTelegram", function(data)
     local currentMoney = Character.money
     if currentMoney > 0.50 then
     getOrGenerate(Character.charIdentifier,function(postbox)
-    local sentDate = os.date ("%x")
+    local sentDate = os.date ("%m %B %Y, %X")
     local Parameters = { ['recipient'] = data.recipient,['sender'] = postbox,['subject'] = data.subject,['sentTime'] = sentDate,  ['message'] = data.message,['postoffice'] = data.postoffice }
     exports.ghmattimysql:execute("INSERT INTO telegrams ( `recipient`,`sender`,`subject`,`sentTime`,`message`,`postoffice`) VALUES ( @recipient,@sender, @subject,@sentTime,@message,@postoffice )", Parameters)
     end)
